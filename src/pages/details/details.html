@@ -1,0 +1,63 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>details</ion-title>
+    <ion-buttons end>
+        <button (click)="close()" ion-button icon-only color="royal" >
+          <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+  <ion-content class="cards-bg social-cards">
+
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/pet-walker.png">
+      </ion-avatar>
+      <h2>{{ detailsPetWalk.nombre_paseador }}</h2>
+      <p>{{ detailsPetWalk.tipo_paseo }}</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p> <ion-icon name="calendar"></ion-icon> Creacion: {{ detailsPetWalk.fecha_creacion | date: 'dd/MM/yyyy, h:mm a' }}</p>
+      <p> <ion-icon name="calendar" color="secondary"></ion-icon> Inicio: {{ detailsPetWalk.fecha_inicio | date: 'dd/MM/yyyy, h:mm a'}}</p>
+      <p>{{ detailsPetWalk.notas }}</p>
+      <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng">
+          <agm-snazzy-info-window [isOpen]="true" [maxWidth]="200" [closeWhenOthersOpen]="true">
+            <ng-template>
+                <p>
+                    <ion-icon name="walk"></ion-icon> {{ detailsPetWalk.descripcion_salida }}
+                </p>
+                <p>
+                    <ion-icon name="hand"></ion-icon> {{ detailsPetWalk.descripcion_llegada }}
+                </p>
+            </ng-template>
+          </agm-snazzy-info-window>
+        </agm-marker>
+      </agm-map>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col justify-content-center>
+        <button ion-button color="secondary" clear small icon-start>
+          {{ detailsPetWalk.estado }}
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+

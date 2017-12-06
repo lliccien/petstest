@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>List of pet rides</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of petWalks">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/pet-walker.png">
+      </ion-thumbnail>
+      <h2>{{ item.nombre_paseador }}</h2>
+      <p>{{ item.tipo_paseo }}</p>
+      <button ion-button clear item-end (click) = "showDetails(item._id)">Details</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
